@@ -22,7 +22,9 @@ chrome.tabs.query({"active": true, "currentWindow": true}, function(tabs) {
             document.getElementById('button' + arg).onclick = function() {
                 document.getElementById('text' + arg).select();
                 document.execCommand('copy');
-                // TODO 必要に応じてポップアップを閉じる。
+                if (document.getElementById('closeOnCopy').checked) {
+                    window.close();
+                }
             };
         })(i);
     }
