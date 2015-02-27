@@ -10,13 +10,18 @@ chrome.tabs.query({"active": true, "currentWindow": true}, function(tabs) {
             "text": "[" + tab.title + "](" + tab.url + ")"
         },
         {
+            "label": "Markdown ref",
+            "text": "[" + tab.title + "]: " + tab.url
+        },
+        {
             "label": "Todoist",
             "text": "@read " + tab.url + " (" + tab.title + ")"
         }
     ];
     console.log('current tab title: ' + tab.title);
     // TODO 自動的に生成して挿入する
-    for (var i = 1; i <= 2; i++) {
+    // TODO foreach
+    for (var i = 1; i <= 3; i++) {
         document.getElementById('text' + i).value = list[i-1].text;
         (function(arg) {
             document.getElementById('button' + arg).onclick = function() {
