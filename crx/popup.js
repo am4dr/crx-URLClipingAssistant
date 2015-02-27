@@ -18,11 +18,13 @@ chrome.tabs.query({"active": true, "currentWindow": true}, function(tabs) {
     // TODO 自動的に生成して挿入する
     for (var i = 1; i <= 2; i++) {
         document.getElementById('text' + i).value = list[i-1].text;
-        document.getElementById('button' + i).onclick = function() {
-            document.getElementById('text' + i).select();
-            document.execCommand('copy');
-            // TODO 必要に応じてポップアップを閉じる。
-        };
+        (function(arg) {
+            document.getElementById('button' + arg).onclick = function() {
+                document.getElementById('text' + arg).select();
+                document.execCommand('copy');
+                // TODO 必要に応じてポップアップを閉じる。
+            };
+        })(i);
     }
 });
 console.log('opened'+ Date());
