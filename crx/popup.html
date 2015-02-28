@@ -5,20 +5,7 @@
     <title>formatted URLs</title>
 </head>
 <body>
-    <table id="entries">
-        <tr>
-            <td><label for="text1">Markdown:</label>
-            <td><input id="text1" type="text" size="40" value="[title](url)"/>
-            <td><input id="button1" type="button" value="コピー"/>
-        <tr>
-            <td><label for="text2">reference:</label>
-            <td><input id="text2" type="text" size="40" value="[title]: url"/>
-            <td><input id="button2" type="button" value="コピー"/>
-        <tr>
-            <td><label for="text3">Todoist:</label>
-            <td><input id="text3" type="text" size="40" value="@read url (title)"/>
-            <td><input id="button3" type="button" value="コピー"/>
-    </table>
+    <table id="entries"></table>
     <input id="closeOnCopy" type="checkbox" checked/><label for="closeOnCopy">コピー後にポップアップを閉じる</label>
     <script src="./popup.js"></script>
 </body>

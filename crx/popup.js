@@ -19,8 +19,33 @@ chrome.tabs.query({"active": true, "currentWindow": true}, function(tabs) {
         }
     ];
     console.log('current tab title: ' + tab.title);
-    // TODO 自動的に生成して挿入する
-    // TODO foreach
+    var entries = document.getElementById('entries');
+    for (var i = 0; i < list.length; ++i) {
+        var textId = 'text' + i;
+        var buttonId = 'button' + i;
+
+        var label = document.createElement('label');
+        label.setAttribute('for', textId);
+        label.appendChild(document.createTextNode(list[i].label + ':'));
+
+        var text = document.createElement('input');
+        text.setAttribute('id', textId);
+        text.setAttribute('type', 'text');
+        text.setAttribute('size', '40');
+        text.setAttribute('value', list[i].text);
+
+        var button = document.createElement('input');
+        button.setAttribute('id', buttonId);
+        button.setAttribute('type', 'button');
+        button.setAttribute('value', 'コピー');
+
+        var tr = document.createElement('tr');
+        tr.appendChild(document.createElement('td')).appendChild(label);
+        tr.appendChild(document.createElement('td')).appendChild(text);
+        tr.appendChild(document.createElement('td')).appendChild(button);
+        entries.appendChild(tr);
+    }
+    /*
     for (var i = 1; i <= 3; i++) {
         document.getElementById('text' + i).value = list[i-1].text;
         (function(arg) {
@@ -33,6 +58,7 @@ chrome.tabs.query({"active": true, "currentWindow": true}, function(tabs) {
             };
         })(i);
     }
+    */
 });
 console.log('opened'+ Date());
 
